@@ -13,7 +13,7 @@ global with sharing class ContactResource1 {
         Integer contactLimit = Integer.valueOf(contactRequestParams.get('limit'));
         String leadSource = contactRequestParams.get('leadsource');
         // Querying contacts
-        List<Contact> contactList = [SELECT Id, Name FROM Contact WHERE LeadSource =:leadSource LIMIT :contactLimit];
+        List<Contact> contactList = [SELECT Id, Name, LeadSource FROM Contact WHERE LeadSource =:leadSource LIMIT :contactLimit];
         // Returning the contacts in the response
         return contactList;
     }
