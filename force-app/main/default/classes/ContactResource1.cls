@@ -4,7 +4,7 @@ global with sharing class ContactResource1 {
 
     // Get Method
     @HTTPGet
-    global static List<Contact> getContactIdAndNames() {
+    global static List<Contact> getContactIdNameAndLeadSource() {
         // Initializing the request parameter with the incoming request
         RestRequest contactRequest = RestContext.request;
         // Getting the URL parameters from the request
