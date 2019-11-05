@@ -8,8 +8,8 @@ global with sharing class ContactResource {
         Contact contact = new Contact();
         contact.FirstName = firstName;
         contact.LastName = lastName;
-        contact.birthDate = Date.parse(birthDate);
-        contact.leadSource = leadSource;
+        contact.Birthdate = Date.parse(birthDate);
+        contact.LeadSource = leadSource;
         // Inserting Contact
         insert contact;
         // Returning the contact in the response
