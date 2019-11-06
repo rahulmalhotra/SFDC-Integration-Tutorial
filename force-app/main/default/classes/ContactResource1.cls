@@ -38,12 +38,12 @@ global with sharing class ContactResource1 {
                 wrapper.message = 'Successfully deleted contact with Id: ' + deleteResult.getId();
             }
             else {
-                // Delete failed, getting errors and setting up error message in wrapper
+                // Delete failed, getting errors and setting up the error message in response wrapper
                 wrapper.success = '0';
-                for(Database.Error err : deleteResult.getErrors()) {
-                    wrapper.message = 'The following error has occurred. ';
-                    wrapper.message += err.getStatusCode() + ': ' + err.getMessage() + '. ';
-                    wrapper.message += 'Contact fields that affected this error: ' + err.getFields();
+                for(Database.Error error : deleteResult.getErrors()) {
+                    wrapper.message = 'The following error has occurred for contact with Id: ' + deleteResult.getId() + '. ';
+                    wrapper.message += error.getStatusCode() + ': ' + error.getMessage() + '. ';
+                    wrapper.message += 'Contact fields that affected this error: ' + error.getFields();
                 }
             }
             // Adding response wrapper instance to the response wrapper list
