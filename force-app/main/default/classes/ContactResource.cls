@@ -12,6 +12,7 @@ global with sharing class ContactResource {
         String contactId = contactRequestURI.substring(contactRequestURI.lastIndexOf('/') + 1);
         // Initializing contact to upsert
         Contact contact = new Contact();
+        // Assigning id to the contact if the contact id obtained from the URL is not empty
         if(String.isNotEmpty(contactId)) {
             contact.Id = contactId;
         }
