@@ -32,6 +32,8 @@ public with sharing class ContactResourceTest {
         Test.startTest();
         // Testing the API
         Contact returnedContact = ContactResource.createNewContact('Gavin', 'Belson', '03/03/1980', 'Web');
+        System.assert(returnedContact != null);
+        System.assert(returnedContact.Id != null);
         // Querying the newly created contact
         Contact queriedContact = [SELECT LeadSource FROM Contact WHERE Id =: returnedContact.Id];
         // Confirming the response
