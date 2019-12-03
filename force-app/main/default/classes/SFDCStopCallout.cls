@@ -16,7 +16,7 @@ public with sharing class SFDCStopCallout {
             SFDCStopBlogsWrapper responseWrapper = SFDCStopBlogsWrapper.parse(response.getBody());
             // Displaying the author information
             System.debug('Author:- ' + responseWrapper.author);
-            if(!responseWrapper.blogs.isEmpty()) {
+            if((responseWrapper.blogs!=null) && (!responseWrapper.blogs.isEmpty())) {
                 // Displaying the information of each blog one by one
                 for(Integer i=0; i<responseWrapper.blogs.size(); i++) {
                     SFDCStopBlogsWrapper.Blogs blog = responseWrapper.blogs.get(i);
