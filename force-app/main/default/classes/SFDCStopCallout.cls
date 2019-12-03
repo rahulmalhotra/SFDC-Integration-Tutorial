@@ -13,7 +13,7 @@ public with sharing class SFDCStopCallout {
         // Checking the status code in the response
         if(response.getStatusCode() == 200) {
             // Deserializing the JSON response using the wrapper class
-            SFDCStopBlogsWrapper responseWrapper = (SFDCStopBlogsWrapper) JSON.deserialize(response.getBody(), SFDCStopBlogsWrapper.class);
+            SFDCStopBlogsWrapper responseWrapper = SFDCStopBlogsWrapper.parse(response.getBody());
             // Displaying the author information
             System.debug('Author:- ' + responseWrapper.author);
             if(!responseWrapper.blogs.isEmpty()) {
