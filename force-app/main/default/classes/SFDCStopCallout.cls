@@ -1,6 +1,6 @@
 public with sharing class SFDCStopCallout {
     // Method to hit SFDC Stop Blogs API and get the response
-    public static void getBlogs() {
+    public static HTTPResponse getBlogs() {
         // Creating an instance of HTTP class
         HTTP http = new HTTP();
         // Creating an instance of HTTPRequest class
@@ -26,5 +26,6 @@ public with sharing class SFDCStopCallout {
                 }
             }
         }
+        return response;
     }
 }
