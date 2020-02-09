@@ -1,20 +1,16 @@
-// Setting up the Request URL
-@RestResource(urlMapping='/ContactAPI/*')
+/*
+*	Author:- Rahul Malhotra
+*	Description:- This class is used as a SOAP Webservice
+*	Created:- 09/02/2020
+*	Last Updated:- 09/02/2020
+*	Code Origin:- SFDCStop (https://www.sfdcstop.com/)
+*	Tutorial:- Salesforce Integration Tutorial Series
+*/
 global with sharing class ContactResource {
-
-    // Get Method
-    @HTTPGet
-    global static List<Contact> getContactIdAndNames() {
-        // Initializing the request parameter with the incoming request
-        RestRequest contactRequest = RestContext.request;
-        // Getting the request URI
-        String contactRequestURI = contactRequest.requestURI;
-        // Getting the limit from the request URI
-        Integer contactLimit = Integer.valueOf(contactRequestURI.substring(contactRequestURI.lastIndexOf('/') + 1));
+    webservice static List<Contact> getContactIdAndNames(Integer contactLimit) {
         // Querying contacts
-        List<Contact> contactList = [SELECT Id, Name FROM Contact LIMIT :contactLimit];
+        List<Contact> contactList = [SELECT Id, Name, Birthdate, Phone FROM Contact LIMIT :contactLimit];
         // Returning the contacts in the response
         return contactList;
     }
-
 }
